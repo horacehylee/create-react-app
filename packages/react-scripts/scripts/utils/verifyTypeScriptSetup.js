@@ -54,6 +54,10 @@ function verifyTypeScriptSetup() {
     firstTimeSetup = true;
   }
 
+  if (process.env.SKIP_VERIFY_TSCONFIG) {
+    return;
+  }
+
   const isYarn = fs.existsSync(paths.yarnLockFile);
 
   // Ensure typescript is installed
